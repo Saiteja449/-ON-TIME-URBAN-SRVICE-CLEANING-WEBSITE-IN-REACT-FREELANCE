@@ -1,264 +1,689 @@
-import { motion } from 'motion/react';
-import { Link } from 'react-router-dom';
-import { ArrowRight, Star, CheckCircle, Clock, Users, Leaf, DollarSign } from 'lucide-react';
+import { motion } from "motion/react";
+import { Link } from "react-router-dom";
+import {
+  ArrowRight,
+  Star,
+  CheckCircle,
+  Clock,
+  Users,
+  Wrench,
+  Hammer,
+  Paintbrush,
+  Droplets,
+  Settings,
+  ChevronDown,
+  Facebook,
+  Instagram,
+  Twitter,
+  Linkedin,
+  Shield,
+} from "lucide-react";
 
 const fadeIn = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
-};
-
-const stagger = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1 }
-  }
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 };
 
 export default function HomePage() {
   return (
-    <div className="w-full">
-      {/* Premium Split Hero Section */}
-      <section className="relative pt-24 pb-20 lg:pt-32 lg:pb-32 overflow-hidden bg-white">
-        <div className="absolute top-20 right-0 -mr-20 w-72 h-72 rounded-full bg-blue-100 mix-blend-multiply filter blur-3xl opacity-50 animate-blob"></div>
-        <div className="absolute top-40 right-20 w-72 h-72 rounded-full bg-emerald-100 mix-blend-multiply filter blur-3xl opacity-50 animate-blob animation-delay-2000"></div>
-        
-        <div className="container mx-auto px-4 md:px-6 relative z-10">
-          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-            <motion.div
-              initial="hidden"
-              animate="visible"
-              variants={stagger}
-              className="lg:w-1/2"
-            >
-              <motion.div variants={fadeIn} className="inline-block mb-6 px-4 py-1.5 rounded-full bg-white shadow-sm border border-emerald-100 text-emerald-700 font-semibold tracking-wide text-xs md:text-sm uppercase">
-                ✨ Top Rated Cleaning Service
-              </motion.div>
-              <motion.h1 variants={fadeIn} className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-gray-900 mb-6 leading-[1.1]">
-                Clean Spaces.<br/>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-emerald-500">
-                  Better Places.
-                </span>
-              </motion.h1>
-              <motion.p variants={fadeIn} className="text-xl text-gray-600 mb-10 max-w-lg leading-relaxed">
-                Professional urban cleaning services tailored to your lifestyle. We bring the sparkle back to your home and office—on time, every time.
-              </motion.p>
-              <motion.div variants={fadeIn} className="flex flex-col sm:flex-row items-center gap-4">
-                <Link to="/contact" className="w-full sm:w-auto px-8 py-4 rounded-xl bg-gray-900 text-white font-semibold text-lg shadow-lg hover:shadow-xl hover:bg-black transition-all hover:-translate-y-1 sm:min-w-[200px] flex items-center justify-center gap-2">
-                  Book Now <ArrowRight size={20} />
-                </Link>
-                <a href="tel:+1234567890" className="w-full sm:w-auto px-8 py-4 rounded-xl bg-white text-gray-900 font-semibold text-lg shadow-sm border border-gray-200 hover:bg-gray-50 transition-all hover:-translate-y-1 sm:min-w-[200px] flex items-center justify-center">
-                  Call Now
-                </a>
-              </motion.div>
-            </motion.div>
+    <div className="w-full overflow-x-hidden font-sans">
+      {/* 1. Hero Section */}
+      <section className="relative bg-homepro-navy text-white pt-32 pb-60 hero-curve">
+        <div className="container mx-auto px-4 relative z-10 text-center">
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="text-homepro-blue font-bold tracking-widest uppercase mb-4"
+          >
+            Hello! We are HomePro Team
+          </motion.p>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-4xl md:text-6xl lg:text-7xl font-black max-w-4xl mx-auto mb-8 leading-tight"
+          >
+            Need improvement or repair your home? we can help!
+          </motion.h1>
+          <motion.div
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            className="flex justify-center mb-16"
+          >
+            <Link to="/contact" className="btn-primary">
+              Get a free quote <ArrowRight size={20} />
+            </Link>
+          </motion.div>
 
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="lg:w-1/2 relative"
-            >
-              <div className="relative rounded-[2rem] overflow-hidden shadow-2xl aspect-[4/3] lg:aspect-square">
-                <img 
-                  src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=2000" 
-                  alt="Spotless Modern Living Room" 
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/40 to-transparent"></div>
-              </div>
-              
-              {/* Floating Badge */}
-              <div className="absolute -bottom-6 -left-6 md:bottom-12 md:-left-12 bg-white p-5 rounded-2xl shadow-xl border border-gray-100 flex items-center gap-4 animate-bounce" style={{ animationDuration: '4s' }}>
-                <div className="w-12 h-12 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center">
-                  <Star size={24} fill="currentColor" />
+          {/* Feature highlights below hero text */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
+            {[
+              { icon: CheckCircle, text: "Certified Technicians" },
+              { icon: Clock, text: "24/7 Service Available" },
+              { icon: Star, text: "Guaranteed Satisfaction" },
+              { icon: Wrench, text: "Modern Equipment" },
+            ].map((f, i) => (
+              <div key={i} className="flex flex-col items-center gap-3">
+                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-homepro-blue">
+                  <f.icon size={24} />
                 </div>
-                <div>
-                  <p className="font-bold text-gray-900 leading-tight">4.9/5</p>
-                  <p className="text-sm text-gray-500">From 500+ Reviews</p>
-                </div>
+                <span className="text-sm font-bold uppercase tracking-tighter opacity-80">
+                  {f.text}
+                </span>
               </div>
-            </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Side Images (Arched) */}
+        <div className="absolute top-40 left-0 hidden xl:block w-72 h-[500px] rounded-r-[100px] overflow-hidden border-r-8 border-white/10">
+          <img
+            src="https://images.unsplash.com/photo-1581578731548-c64695cc6958?auto=format&fit=crop&q=80&w=800"
+            alt="Repair"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="absolute top-40 right-0 hidden xl:block w-72 h-[500px] rounded-l-[100px] overflow-hidden border-l-8 border-white/10">
+          <img
+            src="https://images.unsplash.com/photo-1621905252507-b354bcadcabc?auto=format&fit=crop&q=80&w=800"
+            alt="Plumbing"
+            className="w-full h-full object-cover"
+          />
+        </div>
+      </section>
+
+      {/* 2. Professional for home services */}
+      <section className="py-24 bg-white relative -mt-32 z-20">
+        <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-16 items-center">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeIn}
+          >
+            <h2 className="text-4xl md:text-5xl font-black text-homepro-navy mb-6 leading-tight">
+              Professional for your
+              <br />
+              home services
+            </h2>
+            <p className="text-gray-500 text-lg mb-8 max-w-lg">
+              Specialized in a wide range of home services. We provide
+              high-quality repairs and maintenance for your sanctuary.
+            </p>
+            <div className="grid grid-cols-2 gap-6 mb-10">
+              {[
+                "Electrical Repair",
+                "Plumbing Service",
+                "HVAC Maintenance",
+                "Painting Service",
+                "Home Cleaning",
+                "Roofing Service",
+              ].map((s, i) => (
+                <div
+                  key={i}
+                  className="flex items-center gap-3 text-homepro-navy font-bold"
+                >
+                  <div className="w-2 h-2 rounded-full bg-homepro-blue"></div>
+                  {s}
+                </div>
+              ))}
+            </div>
+            <Link to="/about" className="btn-primary w-fit">
+              Explore Our Story
+            </Link>
+          </motion.div>
+          <div className="relative">
+            <div className="house-clip overflow-hidden shadow-2xl">
+              <img
+                src="https://images.unsplash.com/photo-1595841055318-490333735e26?auto=format&fit=crop&q=80&w=1200"
+                alt="Team"
+                className="w-full aspect-square object-cover"
+              />
+            </div>
+            {/* Blue floating background shape */}
+            <div className="absolute -z-10 top-10 right-10 w-full h-full bg-homepro-blue/10 house-clip"></div>
           </div>
         </div>
       </section>
 
-      {/* Services with Images */}
-      <section className="py-24 bg-gray-50 border-t border-gray-200/50">
-        <div className="container mx-auto px-4 md:px-6">
-          <motion.div 
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={fadeIn}
-            className="text-center max-w-2xl mx-auto mb-16"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-gray-900 mb-4">Premium Services</h2>
-            <p className="text-lg text-gray-600">Meticulous cleaning tailored to the highest standards.</p>
-          </motion.div>
-
-          <motion.div 
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={stagger}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-          >
-            {[
-              { title: 'Apartment Cleaning', desc: '1BHK to 4BHK. Flawless detailing for your living spaces.', img: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&q=80&w=800" },
-              { title: 'Move-in / Move-out', desc: 'Deep cleaning before you move in or after you leave.', img: "https://images.unsplash.com/photo-1584622781564-1d987f7333c1?auto=format&fit=crop&q=80&w=800" },
-              { title: 'Office Cleaning', desc: 'Maintain a productive and hygienic workspace.', img: "https://images.unsplash.com/photo-1556761175-5973dc0f32d7?auto=format&fit=crop&q=80&w=800" },
-            ].map((service, index) => (
-              <motion.div 
-                key={index} 
-                variants={fadeIn}
-                className="group bg-white rounded-[2rem] overflow-hidden shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-300"
-              >
-                <div className="h-60 overflow-hidden relative">
-                  <img src={service.img} alt={service.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent"></div>
-                  <h3 className="absolute bottom-6 left-6 text-2xl font-bold text-white tracking-tight">{service.title}</h3>
-                </div>
-                <div className="p-8">
-                  <p className="text-gray-600 mb-6 text-lg">{service.desc}</p>
-                  <Link to="/services" className="inline-flex items-center gap-2 font-semibold text-gray-900 group-hover:text-emerald-600 transition-colors">
-                    Learn more <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
-                  </Link>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-          <div className="mt-12 text-center">
-            <Link to="/services" className="inline-block px-8 py-4 rounded-xl bg-white border border-gray-200 text-gray-900 font-semibold shadow-sm hover:bg-gray-50 transition-colors">
-              View All Services
+      {/* 3. Our Services */}
+      <section className="py-24 bg-homepro-light">
+        <div className="container mx-auto px-4 text-center mb-16">
+          <h2 className="text-4xl font-black text-homepro-navy mb-4">
+            Our Services
+          </h2>
+          <p className="text-gray-500 max-w-2xl mx-auto font-medium">
+            Providing high-quality home maintenance solutions for every urban
+            need. Reliable, on time, and professional.
+          </p>
+        </div>
+        <div className="container mx-auto px-4 grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {[
+            { title: "Electrical Repair", icon: Wrench },
+            { title: "Water Leakage", icon: Droplets },
+            { title: "Air Cleaning", icon: WindIcon },
+            { title: "House Cleaning", icon: Paintbrush },
+            { title: "Appliances Repair", icon: Settings },
+            { title: "Home Security", icon: CheckCircle },
+            { title: "Plumbing Service", icon: Droplets },
+          ].map((s, i) => (
+            <motion.div
+              key={i}
+              whileHover={{ y: -10 }}
+              className="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all border border-gray-100 flex flex-col items-center text-center group"
+            >
+              <div className="w-16 h-16 rounded-2xl bg-homepro-navy text-white flex items-center justify-center mb-6 group-hover:bg-homepro-blue transition-colors">
+                <s.icon size={32} />
+              </div>
+              <h4 className="text-xl font-bold text-homepro-navy">{s.title}</h4>
+            </motion.div>
+          ))}
+          {/* Blue card in grid */}
+          <div className="bg-homepro-blue p-8 rounded-3xl text-white flex flex-col justify-between shadow-xl">
+            <h4 className="text-2xl font-black mb-4 leading-tight">
+              Need a custom service?
+            </h4>
+            <Link
+              to="/contact"
+              className="px-6 py-3 bg-white text-homepro-blue font-bold rounded-2xl text-center hover:bg-homepro-navy hover:text-white transition-all"
+            >
+              Ask Our Team
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Why Choose Us Integrated Section */}
-      <section className="py-24 bg-white overflow-hidden">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
-            <motion.div 
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6 }}
-              className="lg:w-5/12 relative order-2 lg:order-1"
-            >
-              <div className="rounded-[2rem] overflow-hidden shadow-2xl relative aspect-[3/4]">
-                 <img 
-                   src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=1000" 
-                   alt="Professional Cleaning Supplies" 
-                   className="w-full h-full object-cover"
-                 />
-                 <div className="absolute inset-0 bg-gray-900/10 mix-blend-multiply"></div>
-              </div>
-            </motion.div>
-
-            <motion.div 
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6 }}
-              className="lg:w-7/12 order-1 lg:order-2"
-            >
-              <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-gray-900 mb-6">Why Urban Spaces Trust Us</h2>
-              <p className="text-lg text-gray-600 mb-10 leading-relaxed">We aren't just another cleaning company. We are a team of dedicated professionals committed to punctuality, perfection, and making your space truly immaculate.</p>
-              
-              <div className="grid sm:grid-cols-2 gap-8">
+      {/* 4. Fast, Friendly, Satisfaction Guarantee */}
+      <section className="py-24 container mx-auto px-4">
+        <div className="bg-homepro-navy text-white rounded-[4rem] p-12 md:p-20 relative overflow-hidden satisfaction-shape shadow-2xl">
+          <div className="grid lg:grid-cols-2 gap-20 items-center relative z-10">
+            <div>
+              <h2 className="text-4xl md:text-5xl font-black mb-12 leading-tight">
+                Fast, Friendly, and
+                <br />
+                Satisfaction Guarantee
+              </h2>
+              <div className="grid sm:grid-cols-2 gap-12">
                 {[
-                  { icon: Clock, title: 'On-Time Guarantee', desc: 'We value your schedule. Precision arrival times.' },
-                  { icon: Users, title: 'Trained Pros', desc: 'Thoroughly vetted and expertly trained staff.' },
-                  { icon: Leaf, title: 'Eco-Friendly', desc: 'Safe products for your family and pets.' },
-                  { icon: DollarSign, title: 'Clear Pricing', desc: 'No hidden fees, complete transparency.' }
+                  {
+                    title: "Quality Services",
+                    desc: "Top-tier results from experienced pros.",
+                    icon: Star,
+                  },
+                  {
+                    title: "Fast Arrival",
+                    desc: "We value your time above all.",
+                    icon: Clock,
+                  },
+                  {
+                    title: "Affordable Rates",
+                    desc: "Transparent pricing with no hidden fees.",
+                    icon: DollarSignIcon,
+                  },
+                  {
+                    title: "Safe & Secure",
+                    desc: "Vetted team for your peace of mind.",
+                    icon: Shield,
+                  },
                 ].map((item, i) => (
                   <div key={i} className="flex gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center">
-                      <item.icon size={24} />
+                    <div className="text-homepro-blue shrink-0">
+                      <item.icon size={28} />
                     </div>
                     <div>
-                      <h4 className="text-lg font-bold text-gray-900 mb-1 tracking-tight">{item.title}</h4>
-                      <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
+                      <h4 className="font-black mb-2 uppercase tracking-tighter">
+                        {item.title}
+                      </h4>
+                      <p className="text-sm text-white/60 leading-relaxed font-medium">
+                        {item.desc}
+                      </p>
                     </div>
                   </div>
                 ))}
               </div>
-            </motion.div>
+            </div>
+            <div className="hidden lg:block relative h-[500px]">
+              <img
+                src="https://images.unsplash.com/photo-1581244277943-fe4a9c777189?auto=format&fit=crop&q=80&w=800"
+                alt="Satisfaction"
+                className="w-full h-full object-cover rounded-3xl"
+              />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-24 bg-gray-900 text-white border-b border-gray-800">
-        <div className="container mx-auto px-4 md:px-6">
-           <motion.div 
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={fadeIn}
-            className="text-center max-w-2xl mx-auto mb-16"
-          >
-            <h2 className="text-3xl md:text-4xl tracking-tight font-bold mb-4">Client Experiences</h2>
-          </motion.div>
-
-          <motion.div 
-             initial="hidden"
-             whileInView="visible"
-             viewport={{ once: true, margin: "-100px" }}
-             variants={stagger}
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
-          >
-            {[
-              { name: "Sarah J.", text: "Absolutely incredible service! The team showed up exactly on time and my apartment looks brand new.", role: "Apartment Owner", img: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=200&h=200" },
-              { name: "Michael T.", text: "We use On Time for our startup office. They are unobtrusive, fast, and highly professional.", role: "Office Manager", img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=200&h=200" },
-              { name: "Priya R.", text: "The deep kitchen clean was worth every penny. Will definitely be booking them regularly now.", role: "Homeowner", img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=200&h=200" }
-            ].map((testimonial, i) => (
-              <motion.div 
-                key={i} 
-                variants={fadeIn}
-                className="bg-gray-800/50 rounded-[2rem] p-8 border border-gray-700/50 backdrop-blur-sm"
-              >
-                <div className="flex gap-1 text-emerald-400 mb-6">
-                  {[1,2,3,4,5].map(star => <Star key={star} size={16} fill="currentColor" />)}
-                </div>
-                <p className="text-lg text-gray-300 mb-8 leading-relaxed">"{testimonial.text}"</p>
-                <div className="flex items-center gap-4">
-                  <img src={testimonial.img} alt={testimonial.name} className="w-12 h-12 rounded-full object-cover border border-gray-600" />
+      {/* 5. How HomePro works */}
+      <section className="py-32 container mx-auto px-4">
+        <div className="grid lg:grid-cols-2 gap-24 items-center">
+          <div className="relative">
+            <div className="rounded-[4rem] overflow-hidden shadow-2xl group">
+              <img
+                src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&q=80&w=1200"
+                alt="Worker"
+                className="w-full aspect-[4/5] object-cover transition-transform duration-[2s] group-hover:scale-105"
+              />
+            </div>
+            {/* Blue check badge floating */}
+            <div className="absolute top-1/2 -right-10 bg-homepro-blue text-white p-6 rounded-3xl shadow-2xl flex items-center gap-4">
+              <CheckCircle
+                size={40}
+                fill="white"
+                className="text-homepro-blue"
+              />
+              <div>
+                <p className="text-2xl font-black leading-none">100%</p>
+                <p className="text-xs font-bold uppercase tracking-widest">
+                  Verified
+                </p>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h2 className="text-4xl md:text-6xl font-black text-homepro-navy mb-12">
+              How On Time
+              <br />
+              works?
+            </h2>
+            <div className="space-y-12">
+              {[
+                {
+                  step: "01",
+                  title: "Call for Appointment",
+                  desc: "Contact our concierge to schedule a visit.",
+                },
+                {
+                  step: "02",
+                  title: "Service Details",
+                  desc: "Provide us with your specific needs and address.",
+                },
+                {
+                  step: "03",
+                  title: "Work In Progress",
+                  desc: "Our experts arrive on time and complete the task.",
+                },
+              ].map((s, i) => (
+                <div key={i} className="flex gap-8 group">
+                  <span className="text-5xl font-black text-gray-200 group-hover:text-homepro-blue transition-colors">
+                    {s.step}
+                  </span>
                   <div>
-                    <h4 className="font-bold tracking-tight text-white">{testimonial.name}</h4>
-                    <p className="text-sm text-gray-400">{testimonial.role}</p>
+                    <h4 className="text-2xl font-black text-homepro-navy mb-2">
+                      {s.title}
+                    </h4>
+                    <p className="text-gray-500 font-medium leading-relaxed">
+                      {s.desc}
+                    </p>
                   </div>
                 </div>
-              </motion.div>
-            ))}
-          </motion.div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* CTA Banner */}
-      <section className="py-24 bg-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-emerald-50"></div>
-        <div className="container mx-auto px-4 md:px-6 relative z-10 text-center">
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="max-w-4xl mx-auto bg-gray-900 rounded-[3rem] p-12 md:p-20 shadow-2xl relative overflow-hidden"
+      {/* 6. Reviews */}
+      <section className="py-32 bg-homepro-light">
+        <div className="container mx-auto px-4 text-center max-w-4xl">
+          <h2 className="text-3xl font-black text-homepro-navy mb-8">
+            Here our original reviews from trusted platform
+          </h2>
+          <div className="flex justify-center items-center gap-2 mb-12">
+            <Star className="text-emerald-500 fill-emerald-500" />
+            <span className="font-black text-2xl tracking-tighter italic">
+              Trustpilot
+            </span>
+          </div>
+          <motion.div
+            whileHover={{ scale: 1.02 }}
+            className="bg-white p-12 rounded-[3rem] shadow-xl border border-white"
           >
-            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-900/40 via-gray-900 to-gray-900 pointer-events-none"></div>
-            <div className="relative z-10">
-              <h2 className="text-4xl md:text-5xl tracking-tight font-bold text-white mb-6">Experience the Difference</h2>
-              <p className="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">Book your premium cleaning service in under 60 seconds and come back to a spotless space.</p>
-              <Link to="/contact" className="px-10 py-5 rounded-full bg-emerald-500 text-white font-bold text-lg shadow-lg hover:shadow-emerald-500/30 hover:bg-emerald-400 transition-all hover:-translate-y-1 inline-flex items-center gap-2">
-                Get a Free Quote <ArrowRight size={20} />
-              </Link>
+            <p className="text-2xl font-medium text-homepro-navy italic leading-relaxed mb-10">
+              "Absolutely best service I've ever experienced. They arrived
+              exactly on time and fixed my HVAC in under an hour. Highly
+              recommended!"
+            </p>
+            <div className="flex flex-col items-center">
+              <img
+                src="https://i.pravatar.cc/100?img=12"
+                alt="Avatar"
+                className="w-16 h-16 rounded-full mb-4"
+              />
+              <h4 className="font-black text-lg">Robert Downey</h4>
+              <div className="flex gap-1 text-yellow-400 mt-1">
+                {[1, 2, 3, 4, 5].map((s) => (
+                  <Star key={s} size={14} fill="currentColor" />
+                ))}
+              </div>
             </div>
           </motion.div>
         </div>
       </section>
+
+      {/* 7. Blog/Insights */}
+      <section className="py-32 container mx-auto px-4">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-black text-homepro-navy">
+            Explore Insights in Our Blog
+          </h2>
+        </div>
+        <div className="grid md:grid-cols-3 gap-10">
+          {[
+            {
+              title: "Understanding Home Heating System Maintenance",
+              img: "https://images.unsplash.com/photo-1517646288021-22ed2f2bb2a0?auto=format&fit=crop&q=80&w=800",
+              date: "May 12, 2024",
+            },
+            {
+              title: "The Essentials of Professional Plumbing Care",
+              img: "https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&q=80&w=800",
+              date: "May 10, 2024",
+            },
+            {
+              title: "Modern House Painting Trends for 2024",
+              img: "https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&q=80&w=800",
+              date: "May 08, 2024",
+            },
+          ].map((post, i) => (
+            <div key={i} className="group cursor-pointer">
+              <div className="rounded-[2.5rem] overflow-hidden mb-6 h-64 shadow-lg">
+                <img
+                  src={post.img}
+                  alt={post.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+              </div>
+              <p className="text-xs font-black text-homepro-blue uppercase mb-3">
+                {post.date}
+              </p>
+              <h4 className="text-2xl font-black text-homepro-navy leading-tight group-hover:text-homepro-blue transition-colors">
+                {post.title}
+              </h4>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 8. FAQ Section */}
+      <section className="py-32 bg-homepro-light">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <h2 className="text-4xl font-black text-homepro-navy mb-16 text-center">
+            Frequently Asked Questions
+          </h2>
+          <div className="space-y-6">
+            {[
+              "How long does a typical repair take?",
+              "What areas do you serve in the city?",
+              "Are your technicians fully insured?",
+              "Do you offer same-day emergency services?",
+            ].map((q, i) => (
+              <div
+                key={i}
+                className="bg-white p-8 rounded-3xl shadow-sm border border-white flex items-center justify-between group cursor-pointer hover:bg-homepro-navy hover:text-white transition-all"
+              >
+                <span className="text-xl font-bold">{q}</span>
+                <ChevronDown className="group-hover:rotate-180 transition-transform" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 9. Final CTA */}
+      <section className="py-32 container mx-auto px-4">
+        <div className="bg-homepro-navy text-white rounded-[4rem] p-12 md:p-20 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-12 shadow-2xl">
+          {/* Wave background cutout shape simulation */}
+          <div className="absolute top-0 right-0 w-64 h-64 bg-homepro-blue/20 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2"></div>
+
+          <div className="max-w-2xl relative z-10 text-center md:text-left">
+            <h2 className="text-5xl md:text-7xl font-black mb-8 leading-[0.95] tracking-tighter">
+              Already to improve or repair your home? Let's Talk!
+            </h2>
+            <Link to="/contact" className="btn-primary w-fit mx-auto md:mx-0">
+              Get Started Now <ArrowRight size={24} />
+            </Link>
+          </div>
+          <div className="relative z-10 shrink-0">
+            <img
+              src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&q=80&w=800"
+              alt="Success"
+              className="w-80 h-80 rounded-[3rem] object-cover border-8 border-white/10 shadow-2xl"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* 10. Footer Section */}
+      <footer className="bg-homepro-navy text-white pt-24 pb-12">
+        {/* Sky blue bar */}
+        <div className="container mx-auto px-4 -mt-32 mb-16 relative z-30">
+          <div className="bg-homepro-blue p-8 md:p-12 rounded-[3rem] shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8">
+            <h3 className="text-3xl font-black leading-tight max-w-sm">
+              Stay updated with our latest offers
+            </h3>
+            <div className="flex w-full md:w-auto bg-white rounded-2xl overflow-hidden p-2 shadow-inner">
+              <input
+                type="email"
+                placeholder="Your Email"
+                className="flex-1 px-6 py-4 outline-none text-homepro-navy font-bold"
+              />
+              <button className="bg-homepro-navy text-white px-8 py-4 rounded-xl font-black hover:bg-homepro-navy/90 transition-all">
+                Subscribe
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div className="container mx-auto px-4 grid md:grid-cols-4 gap-16 mb-20">
+          <div className="md:col-span-1">
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-10 h-10 bg-homepro-blue rounded-xl flex items-center justify-center font-black text-xl">
+                O
+              </div>
+              <span className="text-2xl font-black tracking-tighter uppercase">
+                On Time
+              </span>
+            </div>
+            <p className="text-white/60 font-medium leading-relaxed mb-10">
+              Professional home services you can trust. Reliable, efficient, and
+              high-quality repairs for urban sanctuaries.
+            </p>
+            <div className="flex gap-4">
+              {[Facebook, Instagram, Twitter, Linkedin].map((Icon, i) => (
+                <a
+                  key={i}
+                  href="#"
+                  className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-homepro-blue transition-all"
+                >
+                  <Icon size={18} />
+                </a>
+              ))}
+            </div>
+          </div>
+          <div>
+            <h4 className="text-xl font-black mb-8 uppercase tracking-widest text-homepro-blue">
+              Company
+            </h4>
+            <ul className="space-y-4 font-bold text-white/60">
+              <li>
+                <Link
+                  to="/about"
+                  className="hover:text-white transition-colors"
+                >
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/services"
+                  className="hover:text-white transition-colors"
+                >
+                  Our Services
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/contact"
+                  className="hover:text-white transition-colors"
+                >
+                  Contact
+                </Link>
+              </li>
+              <li>
+                <a href="#" className="hover:text-white transition-colors">
+                  Careers
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="text-xl font-black mb-8 uppercase tracking-widest text-homepro-blue">
+              Support
+            </h4>
+            <ul className="space-y-4 font-bold text-white/60">
+              <li>
+                <a href="#" className="hover:text-white transition-colors">
+                  Help Center
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-white transition-colors">
+                  Privacy Policy
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-white transition-colors">
+                  Terms of Service
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-white transition-colors">
+                  Refund Policy
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="text-xl font-black mb-8 uppercase tracking-widest text-homepro-blue">
+              Get In Touch
+            </h4>
+            <ul className="space-y-6 font-bold text-white/60">
+              <li className="flex items-start gap-3">
+                <MapPinIcon size={20} className="text-homepro-blue mt-1" />
+                <span>123 Urban Ave, Metro City</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <PhoneIcon size={20} className="text-homepro-blue" />
+                <span>+1 (234) 567 890</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <MailIcon size={20} className="text-homepro-blue" />
+                <span>hello@ontime.com</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div className="container mx-auto px-4 pt-10 border-t border-white/10 text-center text-sm font-bold text-white/40 uppercase tracking-[0.3em]">
+          &copy; {new Date().getFullYear()} ON TIME HOMEPRO. All Rights
+          Reserved.
+        </div>
+      </footer>
     </div>
+  );
+}
+
+// Simple icons missing in imports
+function MapPinIcon(props: any) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+      <circle cx="12" cy="10" r="3" />
+    </svg>
+  );
+}
+function PhoneIcon(props: any) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+    </svg>
+  );
+}
+function MailIcon(props: any) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <rect width="20" height="16" x="2" y="4" rx="2" />
+      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+    </svg>
+  );
+}
+function WindIcon(props: any) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2" />
+      <path d="M9.6 4.6A2 2 0 1 1 11 8H2" />
+      <path d="M12.6 19.4a2 2 0 1 0-1.4-3.4H2" />
+    </svg>
+  );
+}
+function DollarSignIcon(props: any) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <line x1="12" x2="12" y1="2" y2="22" />
+      <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+    </svg>
   );
 }
